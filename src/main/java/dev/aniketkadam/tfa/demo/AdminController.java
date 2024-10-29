@@ -1,6 +1,7 @@
 package dev.aniketkadam.tfa.demo;
 
 import io.swagger.v3.oas.annotations.Hidden;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/v1/admin")
 @PreAuthorize("hasRole('ADMIN')")
+//@SecurityRequirement(name = "bearerAuth") // this for only this end-point
 public class AdminController {
 
     @GetMapping
@@ -21,7 +23,7 @@ public class AdminController {
     }
     @PostMapping
     @PreAuthorize("hasAuthority('admin:create')")
-    @Hidden
+    @Hidden // hide this end-point in the documentation
     public String post() {
         return "POST:: admin controller";
     }

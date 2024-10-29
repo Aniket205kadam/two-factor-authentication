@@ -12,24 +12,24 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/v1/management")
-@Tag(name = "Management")
+@Tag(name = "Management_Controller")
 public class ManagementController {
-
 
     @Operation(
             description = "Get endpoint for manager",
-            summary = "This is a summary for management get endpoint",
+            summary = "This is summary for management get endpoint",
             responses = {
                     @ApiResponse(
                             description = "Success",
-                            responseCode = "200"
+                            responseCode = "200",
+                            ref = "here we write reference"
                     ),
                     @ApiResponse(
                             description = "Unauthorized / Invalid Token",
-                            responseCode = "403"
+                            responseCode = "200",
+                            ref = "here we write reference"
                     )
             }
-
     )
     @GetMapping
     public String get() {
